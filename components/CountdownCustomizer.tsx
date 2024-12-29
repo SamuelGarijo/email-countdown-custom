@@ -29,8 +29,8 @@ export default function CountdownCustomizer() {
         const { previewUrl, embedCode } = await response.json()
         setPreviewUrl(previewUrl)
         setEmbedCode(embedCode)
-      } catch (err) {
-        console.error('Error generating custom countdown:', err)
+      } catch (error) {
+        console.error('Error generating custom countdown:', error)
         setError('Failed to generate custom countdown. Please try again.')
       } finally {
         setIsLoading(false)
@@ -84,7 +84,7 @@ export default function CountdownCustomizer() {
       {previewUrl && (
         <div className="mt-6">
           <h3 className="text-lg font-semibold mb-2">Preview</h3>
-          <Image src={previewUrl} alt="Custom Countdown Preview" width={400} height={100} className="w-full" />
+          <Image src={previewUrl} alt="Custom Countdown Preview" width={400} height={100} />
         </div>
       )}
       {embedCode && (

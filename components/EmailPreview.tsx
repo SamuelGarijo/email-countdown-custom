@@ -13,10 +13,10 @@ export default function EmailPreview() {
                     <td align="center" style={{ padding: '20px 0' }}>
                       <div style={{ fontSize: 0, lineHeight: 0 }}>
                         <a href="https://countdownchristmasv2.vercel.app/" target="_blank" style={{ textDecoration: 'none' }}>
-                          <Image src="/api/countdown/days" alt="Days" width={100} height={100} style={{ display: 'inline-block', border: 0 }} />
-                          <Image src="/api/countdown/hours" alt="Hours" width={100} height={100} style={{ display: 'inline-block', border: 0 }} />
-                          <Image src="/api/countdown/minutes" alt="Minutes" width={100} height={100} style={{ display: 'inline-block', border: 0 }} />
-                          <Image src="/api/countdown/seconds" alt="Seconds" width={100} height={100} style={{ display: 'inline-block', border: 0 }} />
+                          <Image src="/api/countdown/days" alt="Days" width={100} height={100} />
+                          <Image src="/api/countdown/hours" alt="Hours" width={100} height={100} />
+                          <Image src="/api/countdown/minutes" alt="Minutes" width={100} height={100} />
+                          <Image src="/api/countdown/seconds" alt="Seconds" width={100} height={100} />
                         </a>
                       </div>
                     </td>
