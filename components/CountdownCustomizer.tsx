@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { debounce } from 'lodash'
+import Image from 'next/image'
 
 export default function CountdownCustomizer() {
   const [color, setColor] = useState('#000000')
@@ -14,25 +15,29 @@ export default function CountdownCustomizer() {
     setColor(e.target.value)
   }
 
-  const generateCustomCountdown = useCallback(debounce(async (color: string) => {
-    setIsLoading(true)
-    setError('')
-    try {
-      const response = await fetch('/api/customize-countdown', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ color })
-      })
-      if (!response.ok) throw new Error('Customization failed')
-      const { uniqueId, previewUrl, embedCode } = await response.json()
-      setPreviewUrl(previewUrl)
-      setEmbedCode(embedCode)
-    } catch (err) {
-      setError('Failed to generate custom countdown. Please try again.')
-    } finally {
-      setIsLoading(false)
-    }
-  }, 500), [])
+  const generateCustomCountdown = useCallback(
+    debounce(async (color: string) => {
+      setIsLoading(true)
+      setError('')
+      try {
+        const response = await fetch('/api/customize-countdown', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ color })
+        })
+        if (!response.ok) throw new Error('Customization failed')
+        const { previewUrl, embedCode } = await response.json()
+        setPreviewUrl(previewUrl)
+        setEmbedCode(embedCode)
+      } catch (err) {
+        console.error('Error generating custom countdown:', err)
+        setError('Failed to generate custom countdown. Please try again.')
+      } finally {
+        setIsLoading(false)
+      }
+    }, 500),
+    []
+  )
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -79,7 +84,7 @@ export default function CountdownCustomizer() {
       {previewUrl && (
         <div className="mt-6">
           <h3 className="text-lg font-semibold mb-2">Preview</h3>
-          <img src={previewUrl} alt="Custom Countdown Preview" className="w-full" />
+          <Image src={previewUrl} alt="Custom Countdown Preview" width={400} height={100} className="w-full" />
         </div>
       )}
       {embedCode && (

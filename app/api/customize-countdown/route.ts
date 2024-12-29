@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { v4 as uuidv4 } from 'uuid'
 import { createCanvas } from 'canvas'
-import GifEncoder from 'gif-encoder-2'
 import { getTimeValues } from '../../../config/dates'
 import { PrismaClient } from '@prisma/client'
 
