@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import LiveCountdown from '../components/LiveCountdown'
 import CanvasPreview from '../components/CanvasPreview'
-import CountdownCustomizer from '../components/CountdownCustomizer'
 
 export default function Home() {
   return (
@@ -16,7 +15,6 @@ export default function Home() {
         <CanvasPreview />
       </div>
       <LiveCountdown />
-      <CountdownCustomizer />
     </main>
   )
 }
