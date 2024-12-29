@@ -50,4 +50,3 @@ async function generatePreviewImage(color: string): Promise<string> {
 
   return canvas.toDataURL()
 }
-
