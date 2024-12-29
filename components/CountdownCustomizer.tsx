@@ -36,7 +36,7 @@ export default function CountdownCustomizer() {
         setIsLoading(false)
       }
     }, 500),
-    []
+    [setIsLoading, setError, setPreviewUrl, setEmbedCode]
   )
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -100,3 +100,4 @@ export default function CountdownCustomizer() {
     </div>
   )
 }
+
